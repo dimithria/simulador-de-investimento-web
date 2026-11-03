@@ -1,0 +1,449 @@
+*{
+    box-sizing:border-box
+}
+:root{
+    --bg:#f4f7f5;
+    --surface:#fff;
+    --ink:#17251f;
+    --muted:#718078;
+    --line:#e5ece7;
+    --green:#137a50;
+    --green2:#1aa36b;
+    --soft:#e9f5ee;
+    --navy:#18372b
+} 
+body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"DM Sans",sans-serif
+}
+.topbar{
+    height:70px;
+    background:#fff;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 max(5vw,24px)
+}
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:var(--ink);
+    font:800 18px Manrope,sans-serif
+}
+.brand-icon{
+    width:32px;
+    height:32px;
+    display:grid;
+    place-items:center;
+    background:var(--green);
+    color:white;
+    border-radius:10px;
+    font-size:22px
+}
+.brand-accent{
+    color:var(--green)
+}
+.top-label,.eyebrow{
+    font-size:10px;
+    letter-spacing:1.7px;
+    font-weight:700;
+    color:var(--green)
+}
+.top-label{
+    color:var(--muted)
+}
+.container{
+    width:min(1160px,92%);
+    margin:auto
+}
+.hero{
+    padding:48px 0 34px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between
+}
+.hero h1{
+    font:800 clamp(32px,5vw,48px)/1.12 Manrope,sans-serif;
+    letter-spacing:-1.8px;
+    margin:10px 0
+}
+.hero h1 span{
+    color:var(--green)
+}
+.hero-copy{
+    color:var(--muted);
+    max-width:560px;
+    line-height:1.7;
+    margin:12px 0 0
+}
+.hero-mark{
+    width:118px;
+    height:118px;
+    border-radius:34px;
+    background:var(--soft);
+    color:var(--green);
+    display:grid;
+    place-items:center;
+    font:800 32px Manrope;
+    transform:rotate(7deg);
+    position:relative
+}
+.hero-mark span{
+    font-size:22px;
+    position:absolute;
+    right:20px;top:18px
+}
+.dashboard{
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:20px;
+    align-items:start
+}
+.panel,.metric-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:18px;
+    box-shadow:0 5px 20px #1b49300a
+}
+.inputs-panel{
+    padding:24px;
+    position:sticky;
+    top:18px
+}
+.section-heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    margin-bottom:20px
+}
+.section-heading h2{
+    font:700 20px Manrope;
+    margin:5px 0 0;
+    letter-spacing:-.5px
+}
+.section-heading .eyebrow{
+    margin:0
+}
+.step{
+    color:#9aaba1;
+    font:700 12px Manrope
+}
+.field{
+    margin:18px 0
+}
+.field label,.profile-control label{
+    display:block;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:8px
+}
+.input-wrap{
+    height:44px;
+    border:1px solid #dce6df;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    padding:0 12px;
+    gap:8px;
+    background:#fff
+}
+.input-wrap:focus-within{
+    border-color:var(--green);
+    box-shadow:0 0 0 3px #137a5014
+}
+.input-wrap span{
+    font-size:12px;
+    color:var(--muted)
+}
+input{
+    width:100%;
+    min-width:0;
+    border:0;
+    outline:0;
+    font:600 14px "DM Sans";
+    color:var(--ink);
+    background:transparent
+}.field small{
+    display:block;
+    color:var(--muted);
+    font-size:10px;
+    margin-top:6px;
+    line-height:1.5
+}
+.suggestion{
+    padding:14px;
+    background:var(--soft);
+    border-radius:11px;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    margin-top:20px
+}
+.suggestion span{
+    font-size:11px;
+    color:#547364
+}
+.suggestion strong{
+    font:700 19px Manrope;
+    color:var(--green)
+}
+.reset-btn{
+    border:0;
+    background:none;
+    color:var(--muted);
+    font:600 11px "DM Sans";
+    padding:14px 0 0;
+    cursor:pointer
+}
+.reset-btn:hover{
+    color:var(--green)
+}
+.results-column{
+    display:flex;
+    flex-direction:column;
+    gap:18px
+}
+.metrics-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px
+}
+.metric-card{
+    padding:18px;
+    min-height:116px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:8px
+}
+.metric-card span{
+    font-size:11px;
+    color:var(--muted);
+    font-weight:600
+}
+.metric-card strong{
+    font:800 clamp(17px,2vw,23px) Manrope;
+    letter-spacing:-.7px
+}.metric-card small{
+    font-size:10px;
+    color:var(--muted)
+}
+.primary-metric{
+    background:var(--navy);
+    color:white;border-color:var(--navy)
+}
+.primary-metric span,.primary-metric small{
+    color:#b7cec1
+}
+.primary-metric strong{
+    color:#8de0b4
+}
+.chart-panel,.scenarios-panel,.allocation-panel{
+    padding:24px
+}
+.chart-legend{
+    font-size:11px;color:var(--muted);
+    display:flex;
+    align-items:center;gap:7px
+}
+.chart-legend i{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--green2)
+}.chart-wrap{
+    height:245px;
+    position:relative
+}
+.scenarios-panel{
+    padding-bottom:12px
+}
+.table-scroll{
+    overflow-x:auto
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    text-align:left;
+    white-space:nowrap
+}
+th{
+    font-size:10px;
+    color:var(--muted);
+    font-weight:700;
+    padding:11px 8px;
+    border-bottom:1px solid var(--line)
+}
+td{
+    font-size:12px;
+    padding:13px 8px;
+    border-bottom:1px solid #f0f3f1
+}td:not(:first-child){
+    font-weight:700;
+    font-variant-numeric:tabular-nums
+}
+tbody tr:last-child td{
+    border-bottom:0
+}
+.allocation-panel{
+    margin-top:20px
+}
+.subheading{
+    color:var(--muted);
+    font-size:12px;
+    margin:7px 0 0
+}
+.profile-control{
+    min-width:170px
+}
+.profile-control select{
+    width:100%;
+    height:40px;
+    padding:0 10px;
+    border:1px solid #dce6df;
+    border-radius:9px;
+    background:white;
+    color:var(--ink);
+    font:600 12px "DM Sans"
+}
+.allocation-content{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:30px;
+    align-items:center
+}
+.allocation-chart-wrap{
+    height:190px;
+    position:relative
+}
+.allocation-list{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px
+}
+.allocation-item{
+    display:flex;
+    align-items:center;justify-content:space-between;
+    padding:13px;
+    border:1px solid var(--line);
+    border-radius:10px;gap:10px
+}
+.allocation-name{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:11px;
+    font-weight:600
+}
+.allocation-dot{
+    width:9px;
+    height:9px;
+    border-radius:3px;
+    flex:none
+}
+.allocation-value{
+    text-align:right
+}
+.allocation-value strong{
+    display:block;
+    font-size:12px
+}
+.allocation-value small{
+    font-size:10px;
+    color:var(--muted)
+}
+.disclaimer{
+    font-size:10px;
+    line-height:1.6;
+    color:var(--muted);
+    background:#f7f9f7;
+    padding:12px;
+    border-radius:9px;
+    margin:22px 0 0
+}
+footer{
+    display:flex;
+    justify-content:space-between;
+    padding:25px 0 35px;
+    color:#87958c;
+    font-size:10px
+}
+footer span:first-child{
+    font-weight:700;
+    color:var(--green)
+}
+@media(max-width:850px)
+{
+.dashboard{
+    grid-template-columns:1fr
+}
+.inputs-panel{
+    position:static
+}
+.metrics-grid{
+    grid-template-columns:1fr 1fr
+}
+.metric-card:first-child{
+    grid-column:span 2
+}
+.hero-mark{
+    width:85px;
+    height:85px;
+    font-size:24px;
+    border-radius:25px
+}
+.allocation-content{
+    grid-template-columns:180px 1fr;
+    gap:15px
+}
+
+}
+@media(max-width:560px)
+{
+.top-label{
+    font-size:8px
+}
+.hero{
+    padding:35px 0 25px
+}
+.hero-mark{
+    display:none
+}
+.metrics-grid{
+    grid-template-columns:1fr
+}
+.metric-card:first-child{
+    grid-column:auto}
+.allocation-panel,
+.chart-panel,
+.scenarios-panel{
+    padding:18px
+}
+.allocation-content{
+    grid-template-columns:1fr
+}
+.allocation-chart-wrap{
+    width:190px;
+    margin:auto
+}
+.allocation-list{
+    grid-template-columns:1fr
+}
+.allocation-panel>.section-heading{
+    align-items:flex-start;
+    flex-direction:column
+}
+.profile-control{
+    width:100%
+}
+footer{
+    gap:10px;
+    flex-direction:column
+}}
+

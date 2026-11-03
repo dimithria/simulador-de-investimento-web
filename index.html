@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Simulador de patrimônio e investimentos mensais em FIIs.">
+  <title>Simulador de Investimentos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">↗</span><span>Investe<span class="brand-accent">Simples</span></span></a>
+    <span class="top-label">SIMULADOR DE PATRIMÔNIO</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">PLANEJE SEU FUTURO</p>
+        <h1>Seu dinheiro pode<br><span>trabalhar por você.</span></h1>
+        <p class="hero-copy">Simule aportes mensais, acompanhe a evolução do patrimônio e visualize uma sugestão de distribuição para FIIs.</p>
+      </div>
+      <div class="hero-mark" aria-hidden="true">R$<span>+</span></div>
+    </section>
+
+    <section class="dashboard">
+      <aside class="panel inputs-panel">
+        <div class="section-heading">
+          <div><p class="eyebrow">PERSONALIZE</p><h2>Parâmetros</h2></div>
+          <span class="step">01</span>
+        </div>
+
+        <div class="field">
+          <label for="salary">Salário mensal</label>
+          <div class="input-wrap"><span>R$</span><input id="salary" type="number" min="0" step="100" value="2000"></div>
+          <small>Referência para calcular a sugestão de aporte de 30%.</small>
+        </div>
+        <div class="field">
+          <label for="monthly">Quanto investir por mês?</label>
+          <div class="input-wrap"><span>R$</span><input id="monthly" type="number" min="0" step="10" value="200"></div>
+        </div>
+        <div class="field">
+          <label for="years">Por quantos anos?</label>
+          <div class="input-wrap"><input id="years" type="number" min="1" max="60" step="1" value="5"><span>anos</span></div>
+        </div>
+        <div class="field">
+          <label for="rate">Taxa de rendimento mensal</label>
+          <div class="input-wrap"><input id="rate" type="number" min="0" max="100" step="0.01" value="1.08"><span>%</span></div>
+        </div>
+        <div class="field">
+          <label for="yield">Rendimento mensal da carteira</label>
+          <div class="input-wrap"><input id="yield" type="number" min="0" max="100" step="0.01" value="0.60"><span>%</span></div>
+        </div>
+        <div class="suggestion">
+          <span>Sugestão de aporte (30% do salário)</span>
+          <strong id="suggested">R$ 600,00</strong>
+        </div>
+        <button id="reset" class="reset-btn" type="button">Restaurar valores iniciais</button>
+      </aside>
+
+      <section class="results-column">
+        <div class="metrics-grid">
+          <article class="metric-card primary-metric">
+            <span>Patrimônio projetado</span>
+            <strong id="futureValue">R$ 16.760,80</strong>
+            <small id="periodLabel">em 5 anos</small>
+          </article>
+          <article class="metric-card">
+            <span>Dividendos mensais estimados</span>
+            <strong id="monthlyIncome">R$ 100,56</strong>
+            <small>com o rendimento da carteira</small>
+          </article>
+          <article class="metric-card">
+            <span>Total investido</span>
+            <strong id="investedTotal">R$ 12.000,00</strong>
+            <small>sem considerar rendimentos</small>
+          </article>
+        </div>
+
+        <article class="panel chart-panel">
+          <div class="section-heading">
+            <div><p class="eyebrow">CRESCIMENTO</p><h2>Evolução do patrimônio</h2></div>
+            <span class="chart-legend"><i></i> Patrimônio</span>
+          </div>
+          <div class="chart-wrap"><canvas id="growthChart" aria-label="Gráfico de evolução do patrimônio" role="img"></canvas></div>
+        </article>
+
+        <article class="panel scenarios-panel">
+          <div class="section-heading">
+            <div><p class="eyebrow">VISÃO DE LONGO PRAZO</p><h2>Simulação por período</h2></div>
+            <span class="step">02</span>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>Período</th><th>Patrimônio estimado</th><th>Dividendos/mês</th></tr></thead>
+              <tbody id="scenarioRows"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </section>
+
+    <section class="panel allocation-panel">
+      <div class="section-heading">
+        <div><p class="eyebrow">DISTRIBUIÇÃO ILUSTRATIVA</p><h2>Alocação mensal em FIIs</h2><p class="subheading">Divisão do aporte conforme o perfil selecionado na planilha original.</p></div>
+        <div class="profile-control"><label for="profile">Perfil de investidor</label><select id="profile"><option value="CONSERVADOR">Conservador</option><option value="MODERADO">Moderado</option><option value="AGRESSIVO">Agressivo</option></select></div>
+      </div>
+      <div class="allocation-content">
+        <div class="allocation-chart-wrap"><canvas id="allocationChart" aria-label="Gráfico da distribuição do aporte" role="img"></canvas></div>
+        <div class="allocation-list" id="allocationList"></div>
+      </div>
+      <p class="disclaimer">Atenção: esta é uma simulação matemática, não uma recomendação de investimento. Os resultados não consideram impostos, taxas, inflação, oscilações de mercado ou mudanças nos rendimentos. Rentabilidade passada ou projetada não garante resultados futuros.</p>
+    </section>
+
+    <footer><span>InvesteSimples</span><span>Simulador educacional • Feito para planejamento</span></footer>
+  </main>
+  <script src="js/script.js"></script>
+</body>
+</html>
